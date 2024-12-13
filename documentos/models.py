@@ -16,10 +16,11 @@ class SubserieDocumental(models.Model):
     def __str__(self):
         return f"{self.codigo} - {self.nombre} (Serie: {self.serie.nombre})"
 
-class RegistroDeArchivo(models.Model):
+class RegistroDeArchivo(models.Model):  
     numero_orden = models.CharField(max_length=50)  # Identificador único
-    codigo_serie = models.CharField(max_length=50)  # Relacionado con SerieDocumental
-    codigo_subserie = models.CharField(max_length=50, blank=True, null=True)  # Relacionado con SubserieDocumental
+    codigo = models.CharField(max_length=50, blank=True, null=True)  # Nuevo campo
+    codigo_serie = models.ForeignKey(SerieDocumental, on_delete=models.CASCADE, related_name="registros")
+    codigo_subserie = models.ForeignKey(SubserieDocumental, on_delete=models.CASCADE, blank=True, null=True, related_name="registros")
     unidad_documental = models.CharField(max_length=255)  # Nombre de la unidad documental
     fecha_archivo = models.DateField()
     fecha_inicial = models.DateField(blank=True, null=True)  # Fecha inicial del registro

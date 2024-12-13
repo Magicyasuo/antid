@@ -80,16 +80,35 @@ WSGI_APPLICATION = "hospital_document_management.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hospital_document_management',
+#         'USER': 'root',
+#         'PASSWORD': 'Ratade2patas',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hospital_document_management',
-        'USER': 'root',
-        'PASSWORD': 'Ratade2patas',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+        'ENGINE': 'mssql',
+        'NAME': 'archivo_hospital_sarare',
+        'HOST': 'Z5573',  # Nombre del servidor
+        'PORT': '',  # Deja vacío si es el puerto por defecto
+        'USER': '',  # Solo si usas SQL Server Authentication
+        'PASSWORD': '',  # Solo si usas SQL Server Authentication
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',  # Verifica que tengas este driver instalado
+        },
+    },
 }
+
+
+
+
+
 
 
 
@@ -110,6 +129,11 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+
+LOGIN_URL = '/registros/login/'
+LOGOUT_REDIRECT_URL = '/registros/login/'
+LOGIN_REDIRECT_URL = '/registros/'
 
 
 # Internationalization

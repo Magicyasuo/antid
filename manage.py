@@ -22,3 +22,25 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#     registro = RegistroDeArchivo.objects.first()
+# print(registro.id)  # Mostrará el valor del campo id
+
+# ......................
+#     import os
+
+# output_file = "contenido_proyecto.txt"
+
+# with open(output_file, "w", encoding="utf-8") as f:
+#     for root, dirs, files in os.walk("."):
+#         for file in files:
+#             file_path = os.path.join(root, file)
+#             f.write(f"### {file_path} ###\n")
+#             try:
+#                 with open(file_path, "r", encoding="utf-8") as code_file:
+#                     f.write(code_file.read())
+#             except Exception as e:
+#                 f.write(f"[Error al leer el archivo: {e}]\n")
+#             f.write("\n\n")
+# print(f"Todo el contenido del proyecto ha sido exportado a {output_file}")
+
